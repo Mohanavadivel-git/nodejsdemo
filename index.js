@@ -1,5 +1,11 @@
-const dboperations = require("./dboperations");
+const express = require('express');
+const app = express();
+const port = 8080;
 
-dboperations.getOrders().then(result => {
-    console.log(result)
-});
+app.listen(port,()=>{
+    console.log('listen to port 8080')
+})
+
+app.get('/helloworld', (req, res)=>{
+    res.send('helloworld');
+})
