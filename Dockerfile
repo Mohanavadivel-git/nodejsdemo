@@ -1,19 +1,17 @@
-FROM node:14
+FROM registry.access.redhat.com/ubi8/nodejs-10
 
-# Create app directory
-WORKDIR /usr/src/app
+USER root
 
-# Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-# where available (npm@5+)
+RUN mkdir -p /home/node/app/node_modules && chown -R root:root /home/node/app
+
+WORKDIR /home/node/app
+
 COPY package*.json ./
 
-RUN npm install
-# If you are building your code for production
-# RUN npm ci --only=production
+COPY --chown=root:root . .
 
-# Bundle app source
-COPY . .
+RUN npm install
 
 EXPOSE 8080
-CMD [ "node", "index.js" ]
+
+CMD [ "node", "index.js"]
