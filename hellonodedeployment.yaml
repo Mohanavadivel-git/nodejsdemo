@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-blue
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-blue-app
+      version: blue
+  template:
+    metadata:
+      name: hello-blue-pod
+      labels:
+        app: hello-blue
+        version: blue
+    spec:
+      containers:
+        - name: hello-blue-container
+          image: alphine-nodejs-image-demo:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080

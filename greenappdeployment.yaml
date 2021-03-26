@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-green-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-green-app
+      version: green
+  template:
+    metadata:
+      name: hello-green-pod
+      labels:
+        app: hello-green-app
+        version: green
+    spec:
+      containers:
+        - name: hello-green-container
+          image: alphine-nodejs-image-demo-v1:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
