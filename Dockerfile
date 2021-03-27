@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-FROM node:14-alpine
-=======
-FROM registry.access.redhat.com/ubi8/nodejs-10
->>>>>>> 4747addc4f1b93f2b7d769825f86d398866aa4d7
+FROM registry.ford.com/dcs/node-14
 
 USER root
 
