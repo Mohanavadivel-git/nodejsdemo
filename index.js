@@ -9,5 +9,3 @@ app.listen(port,()=>{
 app.get('/helloworld', (req, res)=>{
     res.send('helloworld-green');
 })
-
-
