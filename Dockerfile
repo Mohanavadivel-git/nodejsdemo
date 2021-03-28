@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi8/nodejs-14
+FROM registry.ford.com/dcs/node-14
 
 USER root
 
