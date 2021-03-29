@@ -1,4 +1,4 @@
-FROM registry.ford.com/dcs/node-14
+FROM node:14-alpine
 
 USER root
 
